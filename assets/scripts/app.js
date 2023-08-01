@@ -1,4 +1,9 @@
+const OPERATION_ADD = "ADD";
+const OPERATION_SUBTRACT = "SUBTRACT";
+const OPERATION_MULTIPLY = "MULTIPLY";
+const OPERATION_DIVIDE = "DIVIDE";
 const defaultResult = 0;
+
 let currentResult = defaultResult;
 let logEntries = [];
 
@@ -33,16 +38,16 @@ function calculate(operation) {
 	const enteredNumber = getUserNumberInput();
 	const initialResult = currentResult;
 	let operator;
-	if (operation === "ADD") {
+	if (operation === OPERATION_ADD) {
 		currentResult += enteredNumber;
 		operator = "+";
-	} else if (operation === "SUBTRACT") {
+	} else if (operation === OPERATION_SUBTRACT) {
 		currentResult -= enteredNumber;
 		operator = "-";
-	} else if (operation === "MULTIPLY") {
+	} else if (operation === OPERATION_MULTIPLY) {
 		currentResult *= enteredNumber;
 		operator = "*";
-	} else if (operation === "DIVIDE") {
+	} else if (operation === OPERATION_DIVIDE) {
 		currentResult /= enteredNumber;
 		operator = "/";
 	}
@@ -50,7 +55,7 @@ function calculate(operation) {
 	writeToLog(operation, initialResult, enteredNumber, currentResult);
 }
 
-addBtn.addEventListener("click", calculate.bind(this, "ADD"));
-subtractBtn.addEventListener("click", calculate.bind(this, "SUBTRACT"));
-multiplyBtn.addEventListener("click", calculate.bind(this, "MULTIPLY"));
-divideBtn.addEventListener("click", calculate.bind(this, "DIVIDE"));
+addBtn.addEventListener("click", calculate.bind(this, OPERATION_ADD));
+subtractBtn.addEventListener("click", calculate.bind(this, OPERATION_SUBTRACT));
+multiplyBtn.addEventListener("click", calculate.bind(this, OPERATION_MULTIPLY));
+divideBtn.addEventListener("click", calculate.bind(this, OPERATION_DIVIDE));
